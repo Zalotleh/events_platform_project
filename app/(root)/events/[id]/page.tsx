@@ -1,5 +1,4 @@
-// import CheckoutButton from '@/components/shared/CheckoutButton';
-// import Collection from '@/components/shared/Collection';
+
 import CheckoutButton from '@/components/shared/CheckoutButton';
 import Collection from '@/components/shared/Collection';
 import { getEventById, getRelatedEventsByCategory, getEventsByUser } from '@/lib/actions/event.actions'

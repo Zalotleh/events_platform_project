@@ -129,7 +129,13 @@ export async function getEventsByUser({ userId, limit = 6, page }: GetEventsByUs
     await connectToDatabase()
 
     const conditions = { organizer: userId }
-    const skipAmount = (page - 1) * limit
+    // Convert page to a number if it's a string
+    const pageAsNumber = typeof page === 'string' ? parseInt(page, 10) : page;
+
+    if (typeof pageAsNumber !== 'number' || isNaN(pageAsNumber)) {
+      throw new Error('Invalid page value');
+    }
+    const skipAmount = (pageAsNumber - 1) * limit
 
     const eventsQuery = Event.find(conditions)
       .sort({ createdAt: 'desc' })
