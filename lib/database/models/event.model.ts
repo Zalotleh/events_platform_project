@@ -16,6 +16,9 @@ export interface IEvent extends Document {
   organizer: { _id: string, firstName: string, lastName: string }
 }
 
+//   TODO add number of seats and if number of seats reached the limits
+
+
 const EventSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
